@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "HWr7gOKpLGOSLZXJNReQjWIUbPKSpzvdTJxPzcKYqmGTHdGRT5TYvKbPuSD9DocIwoSknn0tG5JHZkkKjhA2WA==",
+  "dgSpecHash": "2YKoiW/K0+KxwobOYFCtByJWzfFVzT7uIFx508cRG1W7JeNgDIrtI+e+LZ9arYahcYIGKscUpjjCrTTt4pIvLg==",
   "success": true,
   "projectFilePath": "/Users/geovannyrojaslopez/Projects/library/library-back/Infrastructure/Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/geovannyrojaslopez/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/geovannyrojaslopez/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.8/microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore/7.0.8/microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.8/microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.8/microsoft.entityframeworkcore.analyzers.7.0.8.nupkg.sha512",
