@@ -41,4 +41,12 @@ public class GenderController : ControllerBase
         await _genderService.UpdateAsync(gender);
         return Ok();
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var entity = await _genderService.GetByIdAsync(id);
+        await _genderService.DeleteAsync(entity);
+        return Ok();
+    }
 }
