@@ -28,7 +28,7 @@ public class AuthorService : IAuthorService
     public async Task AddAsync(Author entity)
     {
         await _repo.AddAsync(entity);
-        await _repor.SaveChangesAsync();
+        await _repo.SaveChangesAsync();
     }
 
     public async Task UpdateAsync(Author entity)

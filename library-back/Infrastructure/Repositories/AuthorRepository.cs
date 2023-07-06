@@ -20,7 +20,7 @@ public class AuthorRepository : IAuthorRepository
 
     public async Task SaveChangesAsync()
     {
-        return _context.SaveChangesAsync();
+        await _context.SaveChangesAsync();
     }
 
     public async Task<IEnumerable<Author>> GetAllAsync()
@@ -38,7 +38,7 @@ public class AuthorRepository : IAuthorRepository
         await _context.Authors.AddAsync(entity);
     }
 
-    public void Update(Author author)
+    public void Update(Author entity)
     {
         _context.Authors.Update(entity);
     }
