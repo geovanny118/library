@@ -394,6 +394,19 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.dll": {}
+        }
+      },
       "Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -1161,6 +1174,11 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+    "Business/1.0.0": {
+      "type": "project",
+      "path": "../Business/Business.csproj",
+      "msbuildProject": "../Business/Business.csproj"
+    },
     "Infrastructure/1.0.0": {
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
@@ -1169,8 +1187,10 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Business >= 1.0.0",
       "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.3",
+      "Microsoft.EntityFrameworkCore >= 7.0.8",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -1199,6 +1219,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "/Users/geovannyrojaslopez/Projects/library/library-back/Business/Business.csproj": {
+              "projectPath": "/Users/geovannyrojaslopez/Projects/library/library-back/Business/Business.csproj"
+            },
             "/Users/geovannyrojaslopez/Projects/library/library-back/Infrastructure/Infrastructure.csproj": {
               "projectPath": "/Users/geovannyrojaslopez/Projects/library/library-back/Infrastructure/Infrastructure.csproj"
             }
@@ -1218,6 +1241,10 @@
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[7.0.3, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[7.0.8, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

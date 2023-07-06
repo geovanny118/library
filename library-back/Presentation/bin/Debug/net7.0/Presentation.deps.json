@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v7.0": {
       "Presentation/1.0.0": {
         "dependencies": {
+          "Business": "1.0.0",
           "Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.3",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -185,6 +187,14 @@
             "assemblyVersion": "6.4.0.0",
             "fileVersion": "6.4.0.0"
           }
+        }
+      },
+      "Business/1.0.0": {
+        "dependencies": {
+          "Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Business.dll": {}
         }
       },
       "Infrastructure/1.0.0": {
@@ -365,6 +375,11 @@
       "sha512": "sha512-1Hh3atb3pi8c+v7n4/3N80Jj8RvLOXgWxzix6w3OZhB7zBGRwsy7FWr4e3hwgPweSBpwfElqj4V4nkjYabH9nQ==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.4.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    },
+    "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Infrastructure/1.0.0": {
       "type": "project",
