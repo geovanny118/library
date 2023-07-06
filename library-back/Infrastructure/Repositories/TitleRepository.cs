@@ -13,6 +13,11 @@ public class TitleRepository : ITitleRepository
 {
     private readonly LibraryContext _context;
 
+    public TitleRepository(LibraryContext context)
+    {
+        _context = context;
+    }
+
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
@@ -20,7 +25,7 @@ public class TitleRepository : ITitleRepository
 
     public async Task<IEnumerable<Title>> GetAllAsync()
     {
-       return await _context.Titles.ToListAsync();
+        return await _context.Titles.ToListAsync();
     }
 
     public async Task<Title> GetByIdAsync(int id)
