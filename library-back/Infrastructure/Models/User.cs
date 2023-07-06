@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Library.Infrastructure.Models;
 
@@ -17,5 +18,6 @@ public partial class User
 
     public string Phone { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<BookLoan> BookLoans { get; set; } = new List<BookLoan>();
 }
