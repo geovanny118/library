@@ -34,4 +34,11 @@ public class GenderController : ControllerBase
         await _genderService.AddAsync(gender);
         return Ok();
     }
+
+    [HttpPut]
+    public async Task<IActionResult> Update([FromBody] Gender gender)
+    {
+        await _genderService.UpdateAsync(gender);
+        return Ok();
+    }
 }
