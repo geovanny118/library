@@ -39,6 +39,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+//app.UseWelcomePage(); /// add welcome pages in localhost:{port}/
+
 app.MapControllers();
 
 app.Run();
