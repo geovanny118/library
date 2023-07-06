@@ -14,9 +14,16 @@ public class GenderController : ControllerBase
         _genderService = genderService;
     }
 
-    [HttpGet()]
+    [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         return Ok(await _genderService.GetAllAsync());
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var entity = await _genderService.GetByIdAsync(id);
+        return entity is null ? NotFound() : Ok(entity);
     }
 }
