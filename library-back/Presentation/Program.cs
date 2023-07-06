@@ -18,8 +18,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//dependency injection of repositories
 builder.Services.AddScoped<IGenderRepository, GenderRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+
+//dependency injection of services
 builder.Services.AddScoped<IGenderService, GenderService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
 
 var app = builder.Build();
 
@@ -33,6 +38,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+//app.UseWelcomePage(); /// add welcome pages in localhost:{port}/
 
 app.MapControllers();
 
