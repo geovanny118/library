@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Library.Business.Interfaces;
+using Library.Infrastructure.Models;
 
 namespace Presentation.Controllers;
 
@@ -25,5 +26,12 @@ public class GenderController : ControllerBase
     {
         var entity = await _genderService.GetByIdAsync(id);
         return entity is null ? NotFound() : Ok(entity);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] Gender gender)
+    {
+        await _genderService.AddAsync(gender);
+        return Ok();
     }
 }
