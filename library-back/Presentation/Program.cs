@@ -1,5 +1,9 @@
+using Library.Business.Services;
+using Library.Business.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Library.Infrastructure.Context;
+using Library.Infrastructure.Interfaces;
+using Library.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IGenderRepository, GenderRepository>();
+builder.Services.AddScoped<IGenderService, GenderService>();
 
 var app = builder.Build();
 

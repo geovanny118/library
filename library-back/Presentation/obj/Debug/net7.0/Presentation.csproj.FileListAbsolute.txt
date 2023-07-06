@@ -39,3 +39,5 @@
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/obj/Debug/net7.0/Presentation.pdb
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/obj/Debug/net7.0/Presentation.genruntimeconfig.cache
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/obj/Debug/net7.0/ref/Presentation.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/Business.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/Business.pdb

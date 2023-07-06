@@ -1,0 +1,15 @@
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.csproj.AssemblyReference.cache
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.GeneratedMSBuildEditorConfig.editorconfig
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.AssemblyInfoInputs.cache
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.AssemblyInfo.cs
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.csproj.CoreCompileInputs.cache
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/bin/Debug/net7.0/Business.deps.json
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/bin/Debug/net7.0/Business.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/bin/Debug/net7.0/Business.pdb
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/bin/Debug/net7.0/Infrastructure.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/bin/Debug/net7.0/Infrastructure.pdb
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.csproj.CopyComplete
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/refint/Business.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/Business.pdb
+/Users/geovannyrojaslopez/Projects/library/library-back/Business/obj/Debug/net7.0/ref/Business.dll
