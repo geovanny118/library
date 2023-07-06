@@ -22,11 +22,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGenderRepository, GenderRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<ITitleRepository, TitleRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //dependency injection of services
 builder.Services.AddScoped<IGenderService, GenderService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<ITitleService, TitleService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 
