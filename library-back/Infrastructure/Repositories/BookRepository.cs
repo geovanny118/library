@@ -25,12 +25,12 @@ public class BookRepository : IBookRepository
 
     public async Task<IEnumerable<Book>> GetAllAsync()
     {
-        return await _context.Books.ToListAsync();
+        return await _context.Books.Include(b => b.Title).ToListAsync();
     }
 
     public async Task<Book> GetByIdAsync(int id)
     {
-        return await _context!.Books!.FirstOrDefaultAsync(e => e.Id == id) ?? null;
+        return await _context!.Books!.Include(b => b.Title).FirstOrDefaultAsync(e => e.Id == id) ?? null;
     }
 
     public async Task AddAsync(Book entity)

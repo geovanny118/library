@@ -9,10 +9,12 @@ namespace Presentation.Controllers;
 public class BookController : ControllerBase
 {
     private readonly IBookService _bookService;
+    private readonly ITitleService _titleService;
 
-    public BookController(IBookService bookService)
+    public BookController(IBookService bookService, ITitleService titleService)
     {
         _bookService = bookService;
+        _titleService = titleService;
     }
 
     [HttpGet]
@@ -31,15 +33,37 @@ public class BookController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Book book)
     {
-        await _bookService.AddAsync(book);
-        return Ok();
+        // Buscar el título en la base de datos 
+        var title = await _titleService.GetByIdAsync(book.TitleId);
+
+        if(title != null)
+        {
+            book.Title = title;
+            await _bookService.AddAsync(book);
+            return Ok();
+        }
+        else
+        {
+            return BadRequest("El título no existe en la base de datos.");
+        }
     }
 
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] Book book)
     {
-        await _bookService.UpdateAsync(book);
-        return Ok();
+        // Buscar el título en la base de datos 
+        var title = await _titleService.GetByIdAsync(book.TitleId);
+
+        if (title != null)
+        {
+            book.Title = title;
+            await _bookService.UpdateAsync(book);
+            return Ok();
+        }
+        else
+        {
+            return BadRequest("El título no existe en la base de datos.");
+        }
     }
 
     [HttpDelete("{id}")]
