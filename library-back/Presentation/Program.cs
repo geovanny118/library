@@ -23,12 +23,14 @@ builder.Services.AddScoped<IGenderRepository, GenderRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<ITitleRepository, TitleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 //dependency injection of services
 builder.Services.AddScoped<IGenderService, GenderService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<ITitleService, TitleService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 var app = builder.Build();
 
