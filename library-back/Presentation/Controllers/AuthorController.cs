@@ -25,7 +25,7 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         var entity = await _authorService.GetByIdAsync(id);
-        return entity is null ? NotFound() : Ok(entity);
+        return Ok(entity);
     }
 
     [HttpPost]

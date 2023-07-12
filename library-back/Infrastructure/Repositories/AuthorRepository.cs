@@ -30,7 +30,7 @@ public class AuthorRepository : IAuthorRepository
 
     public async Task<Author> GetByIdAsync(int id)
     {
-        return await _context!.Authors!.FirstOrDefaultAsync(e => e.Id == id) ?? null;
+        return (await _context!.Authors!.FirstOrDefaultAsync(e => e.Id == id) ?? null) ?? throw new InvalidOperationException();
     }
 
     public async Task AddAsync(Author entity)

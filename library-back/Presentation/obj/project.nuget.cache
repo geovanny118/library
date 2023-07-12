@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "F6Nrr+4UaSWgGHz7VqXiHJwZSzy/4QNaxM30wYDjhGqT+xpMj6ijZ4NtWI9lzZJ9ysWb9+58FrmuDBPovtsovg==",
+  "dgSpecHash": "3wiST/nPZzfmpx8hLFF+RH15p0kkgQRkYsYGIk2HyUBTrAVyVmUWvmco1owaWyNFXfJp8/7ioRmWgDDKuKqlZQ==",
   "success": true,
   "projectFilePath": "/Users/geovannyrojaslopez/Projects/library/library-back/Presentation/Presentation.csproj",
   "expectedPackageFiles": [
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/7.0.8/microsoft.aspnetcore.diagnostics.entityframeworkcore.7.0.8.nupkg.sha512",
-    "/Users/geovannyrojaslopez/.nuget/packages/microsoft.aspnetcore.openapi/7.0.3/microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
+    "/Users/geovannyrojaslopez/.nuget/packages/microsoft.aspnetcore.openapi/7.0.8/microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore/7.0.8/microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.8/microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.8/microsoft.entityframeworkcore.analyzers.7.0.8.nupkg.sha512",
@@ -23,10 +23,10 @@
     "/Users/geovannyrojaslopez/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/npgsql/7.0.4/npgsql.7.0.4.nupkg.sha512",
     "/Users/geovannyrojaslopez/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.4/npgsql.entityframeworkcore.postgresql.7.0.4.nupkg.sha512",
-    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
-    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
-    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
-    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/geovannyrojaslopez/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Library.Infrastructure.Models;
+﻿namespace Library.Infrastructure.Models;
 
 public partial class BookLoan
 {
