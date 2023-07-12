@@ -1,5 +1,6 @@
 using Library.Business.Services;
 using Library.Business.Interfaces;
+using Library.Infrastructure.Mapper;
 using Microsoft.EntityFrameworkCore;
 using Library.Infrastructure.Context;
 using Library.Infrastructure.Interfaces;
@@ -31,6 +32,9 @@ builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<ITitleService, TitleService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBookService, BookService>();
+
+//dependency injection for AutoMapper
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 var app = builder.Build();
 

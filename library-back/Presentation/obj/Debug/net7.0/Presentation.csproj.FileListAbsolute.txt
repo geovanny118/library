@@ -41,3 +41,5 @@
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/obj/Debug/net7.0/ref/Presentation.dll
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/Business.dll
 /Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/Business.pdb
+/Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/AutoMapper.dll
+/Users/geovannyrojaslopez/Projects/library/library-back/Presentation/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
