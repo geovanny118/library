@@ -1,4 +1,4 @@
-namespace Infrastructure.Dtos.Author;
+namespace Library.Infrastructure.Dtos.Author;
 
 public class AuthorCreateDto
 {
