@@ -1,6 +1,9 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Library.Business.Interfaces;
+using Library.Infrastructure.Dtos;
 using Library.Infrastructure.Models;
+
 
 namespace Presentation.Controllers;
 
@@ -9,43 +12,51 @@ namespace Presentation.Controllers;
 public class TitleController : ControllerBase 
 {
     private readonly ITitleService _titleService;
+    private readonly IMapper _mapper;
 
-    public TitleController(ITitleService titleService)
+    public TitleController(ITitleService titleService, IMapper mapper)
     {
         _titleService = titleService;
+        _mapper = mapper;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(await _titleService.GetAllAsync());
+        IEnumerable<Title> titles = await _titleService.GetAllAsync();
+        var titlesDto = _mapper.Map<IEnumerable<TitleResponseDto>>(titles);
+        return Ok(titlesDto);
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        var entity = await _titleService.GetByIdAsync(id);
-        return entity is null ? NotFound() : Ok(entity);
+        Title entity = await _titleService.GetByIdAsync(id);
+        var titleDto = _mapper.Map<TitleResponseDto>(entity);
+        return titleDto is null ? NotFound() : Ok(titleDto);
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Title title)
+    public async Task<IActionResult> Create([FromBody] TitleCreateDto titleDto)
     {
-        await _titleService.AddAsync(title);
+        Title titleToCreate = _mapper.Map<Title>(titleDto);
+        await _titleService.AddAsync(titleToCreate);
         return Ok();
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] Title title)
+    public async Task<IActionResult> Update([FromBody] TitleUpdateDto titleDto)
     {
-        await _titleService.UpdateAsync(title);
+        Title titleToUpdate = await _titleService.GetByIdAsync(titleDto.Id);
+        _mapper.Map(titleDto, titleToUpdate);
+        await _titleService.UpdateAsync(titleToUpdate);
         return Ok();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var entity = await _titleService.GetByIdAsync(id);
+        Title entity = await _titleService.GetByIdAsync(id);
         await _titleService.DeleteAsync(entity);
         return Ok();
     }
