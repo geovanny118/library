@@ -1,7 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Library.Business.Interfaces;
-using Library.Infrastructure.Dtos.Gender;
+using Library.Infrastructure.Dtos;
 using Library.Infrastructure.Models;
 
 namespace Presentation.Controllers;

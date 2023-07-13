@@ -1,4 +1,4 @@
-namespace Library.Infrastructure.Dtos.Gender;
+namespace Library.Infrastructure.Dtos;
 
 public class GenderResponseDto
 {

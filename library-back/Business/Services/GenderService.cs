@@ -1,5 +1,4 @@
 using Library.Business.Interfaces;
-using Library.Infrastructure.Dtos.Gender;
 using Library.Infrastructure.Models;
 using Library.Infrastructure.Interfaces;
 

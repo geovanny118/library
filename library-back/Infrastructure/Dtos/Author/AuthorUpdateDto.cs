@@ -1,4 +1,4 @@
-namespace Library.Infrastructure.Dtos.Author;
+namespace Library.Infrastructure.Dtos;
 
 public class AuthorUpdateDto
 {

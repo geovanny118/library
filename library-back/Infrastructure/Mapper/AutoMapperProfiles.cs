@@ -1,7 +1,6 @@
 using AutoMapper;
+using Library.Infrastructure.Dtos;
 using Library.Infrastructure.Models;
-using Library.Infrastructure.Dtos.Gender;
-using Library.Infrastructure.Dtos.Author;
 
 namespace Library.Infrastructure.Mapper;
 
