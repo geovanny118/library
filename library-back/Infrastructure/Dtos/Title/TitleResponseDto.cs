@@ -1,4 +1,4 @@
-namespace Infrastructure.Dtos;
+namespace Library.Infrastructure.Dtos;
 
 public class TitleResponseDto
 {
