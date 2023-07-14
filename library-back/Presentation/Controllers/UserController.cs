@@ -55,8 +55,14 @@ public class UserController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        User entity = await _userService.GetByIdAsync(id);
-        await _userService.DeleteAsync(entity);
+        UserDeleteDto userDto = new UserDeleteDto
+        {
+            Id = id
+        };
+
+        User user = _mapper.Map<User>(userDto);
+        await _userService.DeleteAsync(user);
+
         return Ok();
     }
 }

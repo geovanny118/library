@@ -56,8 +56,14 @@ public class TitleController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        Title entity = await _titleService.GetByIdAsync(id);
-        await _titleService.DeleteAsync(entity);
+        TitleDeleteDto titleDto = new TitleDeleteDto
+        {
+            Id = id
+        };
+
+        Title title = _mapper.Map<Title>(titleDto);
+        await _titleService.DeleteAsync(title);
+
         return Ok();
     }
 }

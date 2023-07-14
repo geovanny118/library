@@ -55,8 +55,14 @@ public class AuthorController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var entity = await _authorService.GetByIdAsync(id);
-        await _authorService.DeleteAsync(entity);
+        AuthorDeleteDto authorDto = new AuthorDeleteDto
+        {
+            Id = id
+        };
+
+        Author author = _mapper.Map<Author>(authorDto);
+        await _authorService.DeleteAsync(author);
+
         return Ok();
     }
 }
