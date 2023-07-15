@@ -1,6 +1,7 @@
 using AutoMapper;
 using Library.Infrastructure.Dtos;
 using Library.Infrastructure.Models;
+using Microsoft.Extensions.Options;
 
 namespace Library.Infrastructure.Mapper;
 
@@ -37,5 +38,12 @@ public class AutoMapperProfiles : Profile
         CreateMap<User, UserResponseDto>();
         CreateMap<UserUpdateDto, User>();
         CreateMap<UserDeleteDto, User>();
+        
+        //Book CRUD
+        CreateMap<BookCreateDto, Book>();
+        CreateMap<Book, BookResponseDto>()
+            .ForMember(destination => destination.Title, options => options.MapFrom(src => src.Title.Title1));
+        CreateMap<BookUpdateDto, Book>();
+        CreateMap<BookDeleteDto, Book>();
     }
 }
