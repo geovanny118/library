@@ -22,15 +22,15 @@ public class AuthorController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        IEnumerable<Author> authors = await _authorService.GetAllAsync();
+        IEnumerable<Author> authors = await _authorService.GetAll();
         var authorsDto = _mapper.Map<IEnumerable<AuthorResponseDto>>(authors);
         return Ok(authorsDto);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> Search(int id)
     {
-        Author entity = await _authorService.GetByIdAsync(id);
+        Author entity = await _authorService.Search(id);
         var authorDto = _mapper.Map<AuthorResponseDto>(entity);
         return authorDto is null ? NotFound() : Ok(authorDto);
     }
@@ -39,16 +39,16 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> Create([FromBody] AuthorCreateDto authorDto)
     {
         var authorToCreate = _mapper.Map<Author>(authorDto);
-        await _authorService.AddAsync(authorToCreate);
+        await _authorService.Create(authorToCreate);
         return Ok();
     }
 
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] AuthorUpdateDto authorDto)
     {
-        var authorToUpdate = await _authorService.GetByIdAsync(authorDto.Id);
+        var authorToUpdate = await _authorService.Search(authorDto.Id);
         _mapper.Map(authorDto, authorToUpdate);
-        await _authorService.UpdateAsync(authorToUpdate);
+        await _authorService.Update(authorToUpdate);
         return Ok();
     }
 
@@ -61,7 +61,7 @@ public class AuthorController : ControllerBase
         };
 
         Author author = _mapper.Map<Author>(authorDto);
-        await _authorService.DeleteAsync(author);
+        await _authorService.Delete(author);
 
         return Ok();
     }

@@ -22,15 +22,15 @@ public class BookController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        IEnumerable<Book> books = await _bookService.GetAllAsync();
+        IEnumerable<Book> books = await _bookService.GetAll();
         var booksDto = _mapper.Map<IEnumerable<BookResponseDto>>(books);
         return Ok(booksDto);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> Search(int id)
     {
-        Book entity = await _bookService.GetByIdAsync(id);
+        Book entity = await _bookService.Search(id);
         var bookDto = _mapper.Map<BookResponseDto>(entity);
         return bookDto is null ? NotFound() : Ok(bookDto);
     }
@@ -39,16 +39,16 @@ public class BookController : ControllerBase
     public async Task<IActionResult> Create([FromBody] BookCreateDto bookDto)
     {
         Book bookToCreate = _mapper.Map<Book>(bookDto);
-        await _bookService.AddAsync(bookToCreate);
+        await _bookService.Create(bookToCreate);
         return Ok();
     }
     
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] BookUpdateDto bookDto)
     {
-        Book bookToUpdate = await _bookService.GetByIdAsync(bookDto.Id);
+        Book bookToUpdate = await _bookService.Search(bookDto.Id);
         _mapper.Map(bookDto, bookToUpdate);
-        await _bookService.UpdateAsync(bookToUpdate);
+        await _bookService.Update(bookToUpdate);
         return Ok();
     }
     
@@ -61,7 +61,7 @@ public class BookController : ControllerBase
         };
 
         Book book = _mapper.Map<Book>(bookDto);
-        await _bookService.DeleteAsync(book);
+        await _bookService.Delete(book);
 
         return Ok();
     }

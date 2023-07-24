@@ -25,6 +25,7 @@ builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<ITitleRepository, TitleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IAuthorTitleRepository, AuthorTitleRepository>();
 
 //dependency injection of services
 builder.Services.AddScoped<IGenderService, GenderService>();
@@ -32,6 +33,7 @@ builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<ITitleService, TitleService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IAuthorTitleService, AuthorTitleService>();
 
 //dependency injection for AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);

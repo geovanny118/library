@@ -23,15 +23,15 @@ public class TitleController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        IEnumerable<Title> titles = await _titleService.GetAllAsync();
+        IEnumerable<Title> titles = await _titleService.GetAll();
         var titlesDto = _mapper.Map<IEnumerable<TitleResponseDto>>(titles);
         return Ok(titlesDto);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> Search(int id)
     {
-        Title entity = await _titleService.GetByIdAsync(id);
+        Title entity = await _titleService.Search(id);
         var titleDto = _mapper.Map<TitleResponseDto>(entity);
         return titleDto is null ? NotFound() : Ok(titleDto);
     }
@@ -40,16 +40,16 @@ public class TitleController : ControllerBase
     public async Task<IActionResult> Create([FromBody] TitleCreateDto titleDto)
     {
         Title titleToCreate = _mapper.Map<Title>(titleDto);
-        await _titleService.AddAsync(titleToCreate);
-        return Ok();
+        await _titleService.Create(titleToCreate);
+        return Ok(titleToCreate);
     }
 
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] TitleUpdateDto titleDto)
     {
-        Title titleToUpdate = await _titleService.GetByIdAsync(titleDto.Id);
+        Title titleToUpdate = await _titleService.Search(titleDto.Id);
         _mapper.Map(titleDto, titleToUpdate);
-        await _titleService.UpdateAsync(titleToUpdate);
+        await _titleService.Update(titleToUpdate);
         return Ok();
     }
 
@@ -62,7 +62,7 @@ public class TitleController : ControllerBase
         };
 
         Title title = _mapper.Map<Title>(titleDto);
-        await _titleService.DeleteAsync(title);
+        await _titleService.Delete(title);
 
         return Ok();
     }

@@ -22,15 +22,15 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        IEnumerable<User> users = await _userService.GetAllAsync();
+        IEnumerable<User> users = await _userService.GetAll();
         var usersDto = _mapper.Map<IEnumerable<UserResponseDto>>(users);
         return Ok(usersDto);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> Search(int id)
     {
-        User entity = await _userService.GetByIdAsync(id);
+        User entity = await _userService.Search(id);
         var userDto = _mapper.Map<UserResponseDto>(entity);
         return userDto is null ? NotFound() : Ok(userDto);
     }
@@ -39,16 +39,16 @@ public class UserController : ControllerBase
     public async Task<IActionResult> Create([FromBody] UserCreateDto userDto)
     {
         User userToCreate = _mapper.Map<User>(userDto);
-        await _userService.AddAsync(userToCreate);
+        await _userService.Create(userToCreate);
         return Ok();
     }
 
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] UserUpdateDto userDto)
     {
-        User userToUpdate = await _userService.GetByIdAsync(userDto.Id);
+        User userToUpdate = await _userService.Search(userDto.Id);
         _mapper.Map(userDto, userToUpdate);
-        await _userService.UpdateAsync(userToUpdate);
+        await _userService.Update(userToUpdate);
         return Ok();
     }
 
@@ -61,7 +61,7 @@ public class UserController : ControllerBase
         };
 
         User user = _mapper.Map<User>(userDto);
-        await _userService.DeleteAsync(user);
+        await _userService.Delete(user);
 
         return Ok();
     }
