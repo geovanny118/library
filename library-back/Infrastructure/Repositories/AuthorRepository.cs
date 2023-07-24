@@ -14,22 +14,22 @@ public class AuthorRepository : IAuthorRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Author>> GetAllAsync()
+    public async Task<IEnumerable<Author>> GetAll()
     {
         return await _context.Authors.ToListAsync();
     }
 
-    public async Task<Author> GetByIdAsync(int id)
+    public async Task<Author> Search(int id)
     {
         return (await _context!.Authors!.FirstOrDefaultAsync(e => e.Id == id) ?? null) ?? throw new InvalidOperationException();
     }
 
-    public async Task AddAsync(Author entity)
+    public async Task Create(Author entity)
     {
         await _context.Authors.AddAsync(entity);
     }

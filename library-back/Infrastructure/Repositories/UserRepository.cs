@@ -18,22 +18,22 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<User>> GetAll()
     {
         return await _context.Users.ToListAsync();
     }
 
-    public async Task<User> GetByIdAsync(int id)
+    public async Task<User> Search(int id)
     {
         return await _context!.Users!.FirstOrDefaultAsync(e => e.Id == id) ?? null;
     }
 
-    public async Task AddAsync(User entity)
+    public async Task Create(User entity)
     {
         await _context.Users.AddAsync(entity);
     }

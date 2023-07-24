@@ -14,22 +14,22 @@ public class TitlesGenderRepository : ITitlesGenderRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<TitlesGender>> GetAllAsync()
+    public async Task<IEnumerable<TitlesGender>> GetAll()
     {
         return await _context.TitlesGenders.ToListAsync();
     }
 
-    public async Task<TitlesGender> GetByIdAsync(int id)
+    public async Task<TitlesGender> Search(int id)
     {
         return (await _context!.TitlesGenders!.FirstOrDefaultAsync(e => e.Id == id) ?? null) ?? throw new InvalidOperationException();
     }
 
-    public async Task AddAsync(TitlesGender entity)
+    public async Task Create(TitlesGender entity)
     {
         await _context.TitlesGenders.AddAsync(entity);
     }

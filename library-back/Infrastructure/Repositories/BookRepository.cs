@@ -18,22 +18,22 @@ public class BookRepository : IBookRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Book>> GetAllAsync()
+    public async Task<IEnumerable<Book>> GetAll()
     {
         return await _context.Books.Include(b => b.Title).ToListAsync();
     }
 
-    public async Task<Book> GetByIdAsync(int id)
+    public async Task<Book> Search(int id)
     {
         return await _context!.Books!.Include(b => b.Title).FirstOrDefaultAsync(e => e.Id == id) ?? null;
     }
 
-    public async Task AddAsync(Book entity)
+    public async Task Create(Book entity)
     {
         await _context.Books.AddAsync(entity);
     }
