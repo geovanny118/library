@@ -13,31 +13,31 @@ public class UserService : IUserService
         _repo = repo;
     }
 
-    public async Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<User>> GetAll()
     {
-        return await _repo.GetAllAsync();
+        return await _repo.GetAll();
     }
 
-    public async Task<User> GetByIdAsync(int id)
+    public async Task<User> Search(int id)
     {
-        return await _repo.GetByIdAsync(id);
+        return await _repo.Search(id);
     }
 
-    public async Task AddAsync(User entity)
+    public async Task Create(User entity)
     {
-        await _repo.AddAsync(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Create(entity);
+        await _repo.Save();
     }
 
-    public async Task UpdateAsync(User entity)
+    public async Task Update(User entity)
     {
         _repo.Update(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 
-    public async Task DeleteAsync(User entity)
+    public async Task Delete(User entity)
     {
         _repo.Delete(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 }

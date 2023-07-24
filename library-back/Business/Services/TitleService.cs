@@ -13,31 +13,31 @@ public class TitleService : ITitleService
         _repo = repo;
     }
 
-    public async Task<IEnumerable<Title>> GetAllAsync()
+    public async Task<IEnumerable<Title>> GetAll()
     {
-        return await _repo.GetAllAsync();
+        return await _repo.GetAll();
     }
 
-    public async Task<Title> GetByIdAsync(int id)
+    public async Task<Title> Search(int id)
     {
-        return await _repo.GetByIdAsync(id);    
+        return await _repo.Search(id);    
     }
 
-    public async Task AddAsync(Title entity)
+    public async Task Create(Title entity)
     {
-        await _repo.AddAsync(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Create(entity);
+        await _repo.Save();
     }
 
-    public async Task UpdateAsync(Title entity)
+    public async Task Update(Title entity)
     {
         _repo.Update(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 
-    public async Task DeleteAsync(Title entity)
+    public async Task Delete(Title entity)
     {
         _repo.Delete(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 }
