@@ -39,10 +39,7 @@ public class AuthorTitleController : Controller
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        AuthorTitleDeleteDto authorTitleDto = new AuthorTitleDeleteDto
-        {
-            Id = id
-        };
+        AuthorTitleDeleteDto authorTitleDto = new AuthorTitleDeleteDto { Id = id };
 
         AuthorsTitle authorsTitle = _mapper.Map<AuthorsTitle>(authorTitleDto);
         await _authorTitleService.Delete(authorsTitle);
