@@ -18,22 +18,22 @@ public class GenderRepository : IGenderRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Gender>> GetAllAsync()
+    public async Task<IEnumerable<Gender>> GetAll()
     {
         return await _context.Genders.ToListAsync();
     }
 
-    public async Task<Gender> GetByIdAsync(int id)
+    public async Task<Gender> Search(int id)
     {
         return await _context!.Genders!.FirstOrDefaultAsync(e => e.Id == id) ?? null;
     }
 
-    public async Task AddAsync(Gender entity)
+    public async Task Create(Gender entity)
     {
         await _context.Genders.AddAsync(entity);
     }

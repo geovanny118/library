@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Library.Business.Interfaces;
 using Library.Infrastructure.Models;
 using Library.Infrastructure.Interfaces;
@@ -15,31 +13,31 @@ public class BookService : IBookService
         _repo = repo;
     }
 
-    public async Task<IEnumerable<Book>> GetAllAsync()
+    public async Task<IEnumerable<Book>> GetAll()
     {
-        return await _repo.GetAllAsync();
+        return await _repo.GetAll();
     }
 
-    public async Task<Book> GetByIdAsync(int id)
+    public async Task<Book> Search(int id)
     {
-        return await _repo.GetByIdAsync(id);
+        return await _repo.Search(id);
     }
 
-    public async Task AddAsync(Book entity)
+    public async Task Create(Book entity)
     {
-        await _repo.AddAsync(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Create(entity);
+        await _repo.Save();
     }
 
-    public async Task UpdateAsync(Book entity)
+    public async Task Update(Book entity)
     {
         _repo.Update(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 
-    public async Task DeleteAsync(Book entity)
+    public async Task Delete(Book entity)
     {
         _repo.Delete(entity);
-        await _repo.SaveChangesAsync();
+        await _repo.Save();
     }
 }

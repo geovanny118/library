@@ -5,9 +5,9 @@ namespace Library.Business.Interfaces;
 
 public interface IService<TEntity>
 {
-    Task<IEnumerable<TEntity>> GetAllAsync();
-    Task<TEntity> GetByIdAsync(int id);
-    Task AddAsync(TEntity entity);
-    Task UpdateAsync(TEntity entity);
-    Task DeleteAsync(TEntity entity);
+    Task<IEnumerable<TEntity>> GetAll();
+    Task<TEntity> Search(int id);
+    Task Create(TEntity entity);
+    Task Update(TEntity entity);
+    Task Delete(TEntity entity);
 }

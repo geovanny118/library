@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Library.Infrastructure.Models;
 using Library.Infrastructure.Context;
@@ -18,22 +14,32 @@ public class TitleRepository : ITitleRepository
         _context = context;
     }
 
-    public async Task SaveChangesAsync()
+    public async Task Save()
     {
         await _context.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Title>> GetAllAsync()
+    public async Task<IEnumerable<Title>> GetAll()
     {
-        return await _context.Titles.ToListAsync();
+        return await _context.Titles
+            .Include(t => t.TitlesGenders)
+            .ThenInclude(tg => tg.Gender)
+            .Include(t => t.AuthorsTitles)
+            .ThenInclude(at => at.Author)
+            .ToListAsync();
     }
 
-    public async Task<Title> GetByIdAsync(int id)
+    public async Task<Title> Search(int id)
     {
-        return await _context!.Titles!.FirstOrDefaultAsync(e => e.Id == id) ?? null;
+        return await _context.Titles
+            .Include(t => t.TitlesGenders)
+            .ThenInclude(tg => tg.Gender)
+            .Include(t => t.AuthorsTitles)
+            .ThenInclude(at => at.Author)
+            .FirstOrDefaultAsync(e => e.Id == id) ?? null;
     }
 
-    public async Task AddAsync(Title entity)
+    public async Task Create(Title entity)
     {
         await _context.Titles.AddAsync(entity);
     }

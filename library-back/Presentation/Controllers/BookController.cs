@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Library.Business.Interfaces;
+using Library.Infrastructure.Dtos;
 using Library.Infrastructure.Models;
 
 namespace Presentation.Controllers;
@@ -9,68 +11,58 @@ namespace Presentation.Controllers;
 public class BookController : ControllerBase
 {
     private readonly IBookService _bookService;
-    private readonly ITitleService _titleService;
+    private readonly IMapper _mapper;
 
-    public BookController(IBookService bookService, ITitleService titleService)
+    public BookController(IBookService bookService, IMapper mapper)
     {
         _bookService = bookService;
-        _titleService = titleService;
+        _mapper = mapper;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(await _bookService.GetAllAsync());
+        IEnumerable<Book> books = await _bookService.GetAll();
+        var booksDto = _mapper.Map<IEnumerable<BookResponseDto>>(books);
+        return Ok(booksDto);
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> Search(int id)
     {
-        var entity = await _bookService.GetByIdAsync(id);
-        return entity is null ? NotFound() : Ok(entity);
+        Book entity = await _bookService.Search(id);
+        var bookDto = _mapper.Map<BookResponseDto>(entity);
+        return bookDto is null ? NotFound() : Ok(bookDto);
     }
-
+    
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] Book book)
+    public async Task<IActionResult> Create([FromBody] BookCreateDto bookDto)
     {
-        // Buscar el título en la base de datos 
-        var title = await _titleService.GetByIdAsync(book.TitleId);
-
-        if(title != null)
-        {
-            book.Title = title;
-            await _bookService.AddAsync(book);
-            return Ok();
-        }
-        else
-        {
-            return BadRequest("El título no existe en la base de datos.");
-        }
+        Book bookToCreate = _mapper.Map<Book>(bookDto);
+        await _bookService.Create(bookToCreate);
+        return Ok();
     }
-
+    
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] Book book)
+    public async Task<IActionResult> Update([FromBody] BookUpdateDto bookDto)
     {
-        // Buscar el título en la base de datos 
-        var title = await _titleService.GetByIdAsync(book.TitleId);
-
-        if (title != null)
-        {
-            book.Title = title;
-            await _bookService.UpdateAsync(book);
-            return Ok();
-        }
-        else
-        {
-            return BadRequest("El título no existe en la base de datos.");
-        }
+        Book bookToUpdate = await _bookService.Search(bookDto.Id);
+        _mapper.Map(bookDto, bookToUpdate);
+        await _bookService.Update(bookToUpdate);
+        return Ok();
     }
-
+    
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var entity = await _bookService.GetByIdAsync(id);
-        await _bookService.DeleteAsync(entity);
+        BookDeleteDto bookDto = new BookDeleteDto
+        {
+            Id = id
+        };
+
+        Book book = _mapper.Map<Book>(bookDto);
+        await _bookService.Delete(book);
+
         return Ok();
     }
 }
