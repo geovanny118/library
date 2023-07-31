@@ -6,7 +6,7 @@ public class TitleResponseDto
 
     public string Title { get; set; } = null!;
     
-    public string Author { get; set; }
+    public string? Author { get; set; }
     
     public ICollection<string>? Genders { get; set; }
 }
