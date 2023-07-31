@@ -51,5 +51,10 @@ public class AutoMapperProfiles : Profile
         CreateMap<AuthorTitleCreateDto, AuthorsTitle>();
         CreateMap<AuthorTitleUpdateDto, AuthorsTitle>();
         CreateMap<AuthorTitleDeleteDto, AuthorsTitle>();
+        
+        //Title Genders Crud
+        CreateMap<TitleGenderCreateDto, TitlesGender>();
+        CreateMap<TitleGenderUpdateDto, TitlesGender>();
+        CreateMap<TitleGenderDeleteDto, TitlesGender>();
     }
 }
